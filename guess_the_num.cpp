@@ -10,20 +10,22 @@ int main() {
     int guess;
     int attempts = 0;
 
-    cout << "Welcome to game 'Guess The Number'!" << endl;
-    cout << "I made a number from 1 to 100, try to guess" << endl;
+    cout << "\033[35mWelcome to game 'Guess The Number'!\033[0m" << endl;
+    cout << "\033[35mI made a number from 1 to 100, try to guess\033[0m" << endl;
 
     do {
-        cout << "Enter the number: ";
+        cout << "\033[35mEnter the number: \033[0m";
         cin >> guess;
         attempts++;
 
         if (guess > secretNumber) {
-            cout << "Too much! Try again" << endl;
-        } else if (guess < secretNumber) {
-            cout << "Too small number! Try again" << endl;
-        } else {
-            cout << "Congratulations, you guessed " << secretNumber << " for " << attempts << " attempts" << endl;
+            cout << "\033[31mToo much! Try again\033[0m" << endl;
+        } 
+        else if (guess < secretNumber) {
+            cout << "\033[34mToo small number! Try again\033[0m" << endl;
+        } 
+        else {
+            cout << "\033[32mCongratulations, you guessed " << secretNumber << " for " << attempts << " attempts\033[0m" << endl;
 
         }
     } while (guess != secretNumber);
