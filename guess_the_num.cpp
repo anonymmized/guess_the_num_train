@@ -14,8 +14,11 @@ int main() {
     cout << "\033[35mI made a number from 1 to 100, try to guess\033[0m" << endl;
 
     do {
-        cout << "\033[35mEnter the number: \033[0m";
-        cin >> guess;
+        while (!(cin >> guess) || guess < 1 || guess > 100) {
+            cout << "\033[31mInvalid input! Please enter a number between 1 and 100: \033[0m";
+            cin.clear();
+            cin.ignore(10000, '\n');
+        }
         attempts++;
 
         if (guess > secretNumber) {
