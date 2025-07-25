@@ -9,6 +9,7 @@ int main() {
     int secretNumber = rand() % 100 + 1;
     int guess;
     int attempts = 0;
+    int maxAttempts = 10;
 
     cout << "\033[35mWelcome to game 'Guess The Number'!\033[0m" << endl;
     cout << "\033[35mI made a number from 1 to 100, try to guess\033[0m" << endl;
@@ -19,6 +20,7 @@ int main() {
             cin.clear();
             cin.ignore(10000, '\n');
         }
+
         attempts++;
 
         if (guess > secretNumber) {
@@ -30,6 +32,11 @@ int main() {
         else {
             cout << "\033[32mCongratulations, you guessed " << secretNumber << " for " << attempts << " attempts\033[0m" << endl;
 
+        }
+
+        if (attempts >= maxAttempts && guess != secretNumber) {
+            cout << "\033[31mGame over! You've used all " << maxAttempts << " attempts. The number was " << secretNumber << ".\033[0m" << endl;
+            break;
         }
     } while (guess != secretNumber);
 
